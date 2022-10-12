@@ -6,7 +6,8 @@ exports.handler = async function () {
     .query(Prismic.Predicates.at('document.type', 'shop')) // An empty query will return all the documents
     .then(function (response) {
       console.log(response)
-      let newItems = Object.values(response.results[0].data.body).map(item => {
+      let data = response.results[0].data.body
+      let newItems = Object.values(data).map(item => {
         return {
           id: "1"
           // .id,
