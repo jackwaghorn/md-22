@@ -3,13 +3,13 @@ const Prismic = require('@prismicio/client')
 exports.handler = async function () {
   const client = Prismic.client('http://mollyelizabeth.cdn.prismic.io/api')
   return client
-    .query(Prismic.Predicates.at('document.type', 'shop')) // An empty query will return all the documents
+    .getSingle('shop')
     .then(function (response) {
       console.log(response)
       let data = response.results[0].data.body
       let newItems = Object.values(data).map(item => {
         return {
-          id: "1"
+          id: '1'
           // .id,
           // name: item.primary.item_title,
           // price: item.primary.price,
