@@ -7,7 +7,7 @@ exports.handler = async function () {
     .then(function (response) {
       // console.log("Documents: ", response.results);
 
-      // let data = response.results;
+      let data = response;
 
       // let newItems = Object.values(data).map((item) => {
       //   return {
@@ -31,7 +31,7 @@ exports.handler = async function () {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({id:'latest'}),
+        body: JSON.stringify(data),
       };
     });
 };
