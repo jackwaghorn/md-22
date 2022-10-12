@@ -22,7 +22,7 @@ exports.handler = async function () {
           'Content-Type': 'application/json',
           Accept: 'application/json'
         },
-        body: JSON.stringify(response)
+        body: JSON.stringify(response.results[0])
       }
     })
 }
