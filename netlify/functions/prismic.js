@@ -2,7 +2,10 @@ const Prismic = require('@prismicio/client')
 
 exports.handler = async function () {
   const client = Prismic.client('http://mollyelizabeth.cdn.prismic.io/api')
-  return client.getSingle('shop').then(response => {
+  return client
+  .query(Prismic.Predicates.at("document.type", "shop")) // An empty query will return all the documents
+  .then(function (response) {
+    console.log(response);
     let newItems = Object.values(response.results).map(item => {
       return {
         id: item.id,
