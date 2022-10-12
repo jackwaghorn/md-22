@@ -19,7 +19,7 @@ exports.handler = async function () {
         'Content-Type': 'application/json',
         Accept: 'application/json'
       },
-      body: JSON.stringify({id:'1'})
+      body: JSON.stringify({id:'update'})
     }
   })
 }
