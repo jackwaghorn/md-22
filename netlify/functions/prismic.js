@@ -7,23 +7,16 @@ exports.handler = async function () {
     .then(function (response) {
       // console.log("Documents: ", response.results);
 
-      let data = response;
+      let data = response.results[0].data.body;
 
-      // let newItems = Object.values(data).map((item) => {
-      //   return {
-      //       name: item.data.product.name.value[0].text,
-      //       id: item.id,
-      //       price: {
-      //         eur: item.data.product.euro.value,
-      //       gbp: item.data.product.pound.value,
-      //       },
-      //       url: 'https://roxanakenjeeva.com/.netlify/functions/prismic',
-      //       stock: item.data.product.stock.value,
-      //   dimensions: {
-      //     weight: item.data.product.weight.value 
-      //   }
-      //   };
-      // });
+      let newItems = Object.values(data).map(item => {
+      return {
+        id: item.id,
+        name: item.primary.item_title,
+        price: item.primary.price,
+        url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
+      }
+    })
 
       return {
         statusCode: 200,
@@ -31,7 +24,7 @@ exports.handler = async function () {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(newItems),
       };
     });
 };
