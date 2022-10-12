@@ -8,7 +8,7 @@ exports.handler = async function () {
       console.log(response)
       let newItems = Object.values(response.results[0].data.body).map(item => {
         return {
-          id: item
+          id: "1"
           // .id,
           // name: item.primary.item_title,
           // price: item.primary.price,
