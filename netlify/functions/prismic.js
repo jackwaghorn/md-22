@@ -15,11 +15,10 @@ exports.handler = async function () {
      
           Object.values(response.results[0].data.shop.body).map(item => {
             return {
-              id: item
-              // .id,
-              // name: item.primary.item_title,
-              // price: item.primary.price,
-              // url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
+              id: item.id,
+              name: item.item_title,
+              price: item.price,
+              url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
             }
           })
         )
