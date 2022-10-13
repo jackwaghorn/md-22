@@ -7,14 +7,15 @@ exports.handler = async function () {
     .then(response => {
       let data = response.results[0].data.body
 
-      let newItems = Object.values(data).map(item => {
-        return {
-          id: item.id,
-          name: item.primary.item_title,
-          price: item.primary.price,
-          url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
-        }
-      })
+      // let newItems = Object.values(data).map(item => {
+      //   return {
+      //     id: item
+      //     // .id,
+      //     // name: item.primary.item_title,
+      //     // price: item.primary.price,
+      //     // url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
+      //   }
+      // })
 
       return {
         statusCode: 200,
@@ -22,7 +23,7 @@ exports.handler = async function () {
           'Content-Type': 'application/json',
           Accept: 'application/json'
         },
-        body: JSON.stringify(newItems)
+        body: JSON.stringify(data)
       }
     })
 }
