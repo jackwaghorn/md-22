@@ -13,13 +13,11 @@ exports.handler = async function () {
         },
         body: JSON.stringify(
           // response.results[0].data.shop.body.value
-          Object.values( response.results[0].data.shop.body.value).map(item => {
+          Object.values(response.results[0].data.shop.body.value).map(item => {
             return {
               id: item.id,
-              name: item["non-repeat"].item_title.value,
-              // .id,
-              // name: item.item_title,
-              // price: item.price,
+              name: item['non-repeat'].item_title.value,
+              price: item['non-repeat'].price.value,
               url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
             }
           })
