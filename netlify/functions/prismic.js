@@ -15,8 +15,9 @@ exports.handler = async function () {
           // response.results[0].data.shop.body.value
           Object.values(response.results[0].data.shop.body.value).map(item => {
             return {
-              id: item.id,
+          
               name: item['non-repeat'].item_title.value,
+              id: item.id,
               price: item['non-repeat'].price.value,
               url: 'https://mollydooner.com/.netlify/functions/prismic'
             }
