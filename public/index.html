@@ -1,63 +1,43 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,user-scalable=no"
-    />
-    <meta
-      name="description"
-      content="Roxana Kenjeeva is a Russian-born visual artist, designer and illustrator."
-    />
-    <meta
-      name="keywords"
-      content="Roxana Kenjeeva,artist,illustrator,illustration,animation,visual art"
-    />
-    <meta property="ix:srcAttribute" content="data-src" />
-    <meta property="ix:srcsetAttribute" content="data-srcset" />
-    <meta property="ix:sizesAttribute" content="data-sizes" />
-
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
-    /> -->
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.css"
-    />
-
-    <script
-      data-n-head="ssr"
-      src="https://cdn.snipcart.com/themes/v3.0/default/snipcart.js"
-      defer
-    ></script>
-
-    <!-- or -->
-
-    <title>Roxana Kenjeeva</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jamstack Explorers - Up and Running with Serverless Functions</title>
   </head>
   <body>
-    <noscript>
-      <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
-      >
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <h1>Up and Running with Serverless Functions</h1>
+    <button id="fetch-btn">Fetch</button>
+    <button id="fetch-pokedex-btn">Fetch Pokedex</button>
+    <button id="fetch-inventory-btn">Fetch Inventory</button>
+    <p id="response-output">Response Placeholder</p>
 
-    <div
-      hidden
-      id="snipcart"
-      data-api-key="OTY5NGJiYmEtYjhjZS00YjQxLTliOTAtYjZjZDQwZTU3MDYxNjM3NjQ4NzYxNDcwMjU3Nzk3"
-      data-config-add-product-behavior="none"
-    ></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const fetchBtn = document.getElementById('fetch-btn')
+        const fetchPokedexBtn = document.getElementById('fetch-pokedex-btn')
+        const fetchInventoryBtn = document.getElementById('fetch-inventory-btn')
+        const responseText = document.getElementById('response-output')
+
+        fetchInventoryBtn.addEventListener('click', async () => {
+          const response = await fetch('/.netlify/functions/prismic').then(response => response.json())
+
+          responseText.innerText = JSON.stringify(response)
+        })
+
+        fetchPokedexBtn.addEventListener('click', async () => {
+          const response = await fetch('/.netlify/functions/snipcart-inventory').then(response => response.json())
+
+          responseText.innerText = JSON.stringify(response)
+        })
+
+        fetchBtn.addEventListener('click', async () => {
+          const response = await fetch('/.netlify/functions/hello-world').then(response => response.json())
+
+          responseText.innerText = JSON.stringify(response)
+        })
+      })
+    </script>
   </body>
 </html>
