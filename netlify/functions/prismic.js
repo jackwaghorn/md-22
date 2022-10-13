@@ -3,7 +3,7 @@ const Prismic = require('@prismicio/client')
 exports.handler = async function () {
   const client = Prismic.client('http://mollyelizabeth.cdn.prismic.io/api')
   return client
-  .query('shop') // An empty query will return all the documents
+  .query(Prismic.Predicates.at('document.type', 'shop')) // An empty query will return all the documents
     .then(response => {
       // let data = response.results[0].data.body
 
