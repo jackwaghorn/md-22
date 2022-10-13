@@ -12,7 +12,7 @@ exports.handler = async function () {
           Accept: 'application/json'
         },
         body: JSON.stringify(
-          response.results[0].data.body
+          response.results[0].data
           // Object.values(response.results[0].data.body).map(item => {
           //   return {
           //     id: item
