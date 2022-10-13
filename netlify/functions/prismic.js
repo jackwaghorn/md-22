@@ -12,15 +12,16 @@ exports.handler = async function () {
           Accept: 'application/json'
         },
         body: JSON.stringify(
-          Object.values(response.results[0].data.body).map(item => {
-            return {
-              id: item
-              // .id,
-              // name: item.primary.item_title,
-              // price: item.primary.price,
-              // url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
-            }
-          })
+          response.results[0].data.body
+          // Object.values(response.results[0].data.body).map(item => {
+          //   return {
+          //     id: item
+          //     // .id,
+          //     // name: item.primary.item_title,
+          //     // price: item.primary.price,
+          //     // url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
+          //   }
+          // })
         )
       }
     })
