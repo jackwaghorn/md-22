@@ -15,7 +15,8 @@ exports.handler = async function () {
           // response.results[0].data.shop.body.value
           Object.values( response.results[0].data.shop.body.value).map(item => {
             return {
-              id: item,
+              id: item.id,
+              name: item.non-repeat.item_title.value,
               // .id,
               // name: item.item_title,
               // price: item.price,
