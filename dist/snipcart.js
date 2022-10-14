@@ -2,7 +2,7 @@ window.SnipcartSettings = {
   publicApiKey:
     'YWU4YjdkNWMtMmIzZC00MjQzLWFlOTQtMDFmMTQyZmJhODNlNjM3NjQ3Mjc5ODAzODA0NDQ2',
   loadStrategy: 'on-user-interaction',
-  version: '3.0'
+  version: '3.4.0'
 }
 ;(() => {
   var c, d

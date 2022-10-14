@@ -20,7 +20,7 @@ exports.handler = async function () {
               id: item.id,
               price: item['non-repeat'].price.value,
               // url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
-              url: '/'
+          
             }
           })
         )
