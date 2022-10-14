@@ -1,9 +1,9 @@
 window.SnipcartSettings = {
   publicApiKey:
     'YWU4YjdkNWMtMmIzZC00MjQzLWFlOTQtMDFmMTQyZmJhODNlNjM3NjQ3Mjc5ODAzODA0NDQ2',
-  loadStrategy: 'on-user-interaction'
+  loadStrategy: 'on-user-interaction',
+  version: '3.0'
 }
-
 ;(() => {
   var c, d
   ;(d = (c = window.SnipcartSettings).version) != null || (c.version = '3.0')
@@ -80,4 +80,3 @@ window.SnipcartSettings = {
         (t.dataset.templatesUrl = window.SnipcartSettings.templatesUrl))
   }
 })()
-
