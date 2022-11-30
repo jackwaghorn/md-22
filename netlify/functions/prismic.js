@@ -6,17 +6,15 @@ exports.handler = async function () {
     .query(Prismic.Predicates.at('document.type', 'shop_item')) // An empty query will return all the documents
     .then(function (response) {
       console.log('Documents: ', response.results)
-
       let data = response.results
-      console.log(response.results)
 
       let newItems = Object.values(data).map(item => {
         return {
-             id: item.id,
-          name: item.data.shop_item.product_name.value[0].text,
-       
+          __typename: 'Product',
+          id: item.id,
+          title: item.data.shop_item.product_name.value[0].text,
           price: item.data.shop_item.product_price.value,
-          url: 'https://mollydooner.com/.netlify/functions/prismic',
+          url: 'https://mollydooner.com/.netlify/functions/prismic'
         }
       })
 
