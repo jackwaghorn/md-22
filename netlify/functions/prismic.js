@@ -12,15 +12,12 @@ exports.handler = async function () {
           Accept: 'application/json'
         },
         body: JSON.stringify(
-          // response.results[0].data.shop.body.value
           Object.values(response.results[0].data.shop.body.value).map(item => {
             return {
-          
-              name: item['non-repeat'].item_title.value,
               id: item.id,
+              title: item['non-repeat'].item_title.value,
               price: item['non-repeat'].price.value,
-              // url: 'https://md-shop-test.netlify.app/.netlify/functions/prismic'
-          
+              url: 'https://mollydooner.com/.netlify/functions/prismic'
             }
           })
         )
