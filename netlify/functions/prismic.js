@@ -9,7 +9,6 @@ exports.handler = async  () => {
     .then(function (response) {
       let newItems = Object.values(response.results).map(item => {
         return {
-          __typename: 'Product',
           id: item.id,
           title: item.data.shop_item.product_name.value[0].text,
           price: item.data.shop_item.product_price.value
