@@ -1,6 +1,7 @@
 const Prismic = require('@prismicio/client')
 
-exports.handler = async function () {
+exports.handler = async  () => {
+  try {
   const client = Prismic.client('http://mollyelizabeth.cdn.prismic.io/api')
 
   return client
@@ -23,6 +24,11 @@ exports.handler = async function () {
         body: JSON.stringify(newItems)
       }
     })
+  } catch (error) {
+    console.log(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Failed fetching data' }),
+    };
+  }
 }
-
-
