@@ -12,10 +12,11 @@ exports.handler = async function () {
 
       let newItems = Object.values(data).map(item => {
         return {
-          // name: item.data.product.name.value[0].text,
-          // id: item.id,
-          price: item
-          // url: 'https://mollydooner.com/.netlify/functions/prismic',
+             id: item.id,
+          name: item.data.shop_item.product_name.value[0].text,
+       
+          price: item.data.shop_item.product_price.value,
+          url: 'https://mollydooner.com/.netlify/functions/prismic',
         }
       })
 
