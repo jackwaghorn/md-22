@@ -11,7 +11,7 @@ exports.handler = async  () => {
         return {
           id: item.id,
           title: item.data.shop_item.product_name.value[0].text,
-          price: item.data.shop_item.product_price.value
+          price: item.data.shop_item.product_price
         }
       })
 
